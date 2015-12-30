@@ -1,0 +1,56 @@
+{
+  "name": "@yummies/layers-loader",
+  "version": "0.0.0",
+  "description": "Multilayer Yummies components helper",
+  "keywords": [ "yummies", "webpack", "loader" ],
+  "homepage": "https://github.com/yummies/layers-loader",
+  "repository": "yummies/inheritance-loader",
+  "contributors": [
+    "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
+    "Denis Koltsov <iam@mistadikay.com> (https://github.com/mistadikay)"
+  ],
+  "main": "build/index.js",
+  "files": [
+    "build/",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "falafel": "1.2.x",
+    "loader-utils": "0.2.x",
+    "js-yaml": "3.4.x",
+    "path-exists": "2.1.x"
+  },
+  "devDependencies": {
+    "babel-core": "6.3.x",
+    "babel-cli": "6.3.x",
+    "babel-preset-es2015": "6.3.x",
+    "babel-preset-stage-0": "6.3.x",
+    "babel-plugin-add-module-exports": "0.1.x",
+
+    "husky": "0.10.x",
+    "rimraf": "2.5.x",
+    "eslint": "1.10.x",
+    "babel-eslint": ">5.0.0-beta1",
+    "eslint-plugin-babel": "3.0.x"
+  },
+  "peerDependencies": {
+    "webpack": "*"
+  },
+  "scripts": {
+    "prebuild": "rimraf build/",
+    "build": "babel lib/ -d build/",
+    "dev": "npm run build -- -w",
+
+    "lint": "eslint lib/",
+    "test": "npm run lint",
+
+    "travis": "npm run lint",
+    "prepush": "npm test",
+    "prepublish": "npm run build"
+  },
+  "engines": {
+    "node": ">=0.12.0",
+    "npm": ">=2.7.0"
+  },
+  "license": "MIT"
+}
