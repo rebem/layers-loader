@@ -46,7 +46,7 @@
     "lint": "eslint lib/",
     "test": "npm run lint",
 
-    "travis": "npm run lint",
+    "travis": "npm test",
     "prepush": "npm test",
     "prepublish": "npm run build"
   },
