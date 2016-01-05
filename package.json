@@ -1,6 +1,6 @@
 {
   "name": "@yummies/layers-loader",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Multilayer Yummies components helper",
   "keywords": [ "yummies", "webpack", "loader" ],
   "homepage": "https://github.com/yummies/layers-loader",
