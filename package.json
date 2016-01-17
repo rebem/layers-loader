@@ -35,17 +35,30 @@
 
     "eslint": "1.10.x",
     "babel-eslint": ">5.0.0-beta1",
-    "eslint-plugin-babel": "3.0.x"
+    "eslint-plugin-babel": "3.0.x",
+
+    "mocha": "2.3.x",
+    "babel-istanbul": "0.6.x",
+    "codecov": "1.0.x",
+    "chokidar-cli": "1.2.x"
   },
   "scripts": {
     "prebuild": "rimraf build/",
     "build": "babel lib/ -d build/",
     "dev": "npm run build -- -w",
 
-    "lint": "eslint lib/",
-    "test": "npm run lint",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "mocha --compilers js:babel-register --recursive",
+    "precoverage": "rimraf coverage/",
+    "coverage": "babel-node node_modules/.bin/babel-istanbul cover _mocha -- --recursive",
+    "tdd": "chokidar lib/*.js test/lib/*.js -c 'npm run coverage' --initial",
 
-    "travis": "npm test",
+    "precodecov": "npm run coverage",
+    "codecov": "codecov --file=coverage/lcov.info --disable=search,gcov",
+    "pretravis": "npm run lint",
+    "travis": "npm run codecov",
+
     "prepush": "npm test",
     "prepublish": "npm run build"
   },
