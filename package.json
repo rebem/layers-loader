@@ -1,10 +1,10 @@
 {
   "name": "rebem-layers-loader",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "description": "reBEM components layers via webpack loader",
-  "keywords": [ "yummies", "webpack", "loader" ],
+  "keywords": [ "rebem", "webpack", "loader" ],
   "homepage": "https://github.com/rebem/rebem-layers-loader",
-  "repository": "rebem-layers-loader",
+  "repository": "rebem/rebem-layers-loader",
   "contributors": [
     "Kir Belevich <kir@soulshine.in> (https://github.com/deepsweet)",
     "Denis Koltsov <iam@mistadikay.com> (https://github.com/mistadikay)"
