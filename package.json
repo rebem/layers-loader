@@ -33,6 +33,7 @@
     "eslint": "1.10.x",
     "babel-eslint": ">5.0.0-beta1",
     "eslint-plugin-babel": "3.0.x",
+    "eslint-config-rebem": "0.2.x",
 
     "mocha": "2.3.x",
     "babel-istanbul": "0.6.x",
