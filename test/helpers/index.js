@@ -1,9 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 
-import transform from '../../lib/transform';
-
 export default function(params) {
+    delete require.cache[require.resolve('../../lib/transform')];
+    delete require.cache[require.resolve('../../lib/chain')];
+
+    const transform = require('../../lib/transform');
+
     return new Promise((resolve, reject) => {
         const testPath = path.resolve('./test/fixtures/', params.path);
         const componentPath = path.resolve(testPath, params.test);

@@ -21,6 +21,25 @@ describe('transform', function() {
             .catch(done);
         });
 
+        it('cache', function(done) {
+            test({
+                path: 'simple/cache/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ]
+                }
+            })
+            .then(done)
+            .catch(done);
+        });
+
         describe('multiple layers', function() {
             it('nearest', function(done) {
                 test({
