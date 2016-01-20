@@ -175,7 +175,7 @@ describe('transform', function() {
             });
         });
 
-        it('single layer', function(done) {
+        it('self', function(done) {
             test({
                 path: 'not-found/self/',
                 test: 'layer-0/target/index.js',
@@ -198,6 +198,25 @@ describe('transform', function() {
 
                 done(err);
             });
+        });
+
+        it('no hash-requires', function(done) {
+            test({
+                path: 'not-found/no-hash/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ]
+                }
+            })
+            .then(done)
+            .catch(done);
         });
     });
 
