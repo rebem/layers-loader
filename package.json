@@ -48,9 +48,9 @@
 
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "mocha --compilers js:babel-register --recursive",
+    "test": "mocha --compilers js:babel-register",
     "precoverage": "rimraf coverage/",
-    "coverage": "babel-node node_modules/.bin/babel-istanbul cover _mocha -- --recursive",
+    "coverage": "babel-node node_modules/.bin/babel-istanbul cover _mocha",
     "tdd": "chokidar lib/*.js test/lib/*.js -c 'npm run coverage' --initial",
 
     "precodecov": "npm run coverage",
