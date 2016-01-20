@@ -40,6 +40,18 @@ describe('transform', function() {
             .catch(done);
         });
 
+        it('exclude', function(done) {
+            test({
+                path: 'simple/exclude/',
+                test: 'test/index.js',
+                options: {
+                    layers: []
+                }
+            })
+            .then(done)
+            .catch(done);
+        });
+
         describe('multiple layers', function() {
             it('nearest', function(done) {
                 test({
