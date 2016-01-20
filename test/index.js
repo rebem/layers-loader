@@ -91,6 +91,37 @@ describe('transform', function() {
                 .catch(done);
             });
 
+            it('middle', function(done) {
+                test({
+                    path: 'simple/multiple-layers/middle/',
+                    test: 'layer-1/test/index.js',
+                    options: {
+                        layers: [
+                            {
+                                path: 'layer-0/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            },
+                            {
+                                path: 'layer-1/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            },
+                            {
+                                path: 'layer-2/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            }
+                        ]
+                    }
+                })
+                .then(done)
+                .catch(done);
+            });
+
             it('self', function(done) {
                 test({
                     path: 'simple/multiple-layers/self/',
