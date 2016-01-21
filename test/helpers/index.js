@@ -3,7 +3,7 @@ import path from 'path';
 
 export default function(params) {
     delete require.cache[require.resolve('../../lib/transform')];
-    delete require.cache[require.resolve('../../lib/chain')];
+    delete require.cache[require.resolve('../../lib/runner')];
 
     const transform = require('../../lib/transform');
 
