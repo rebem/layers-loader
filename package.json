@@ -17,8 +17,7 @@
   "dependencies": {
     "falafel": "1.2.x",
     "loader-utils": "0.2.x",
-    "path-exists": "2.1.x",
-    "babel-runtime": "6.3.x"
+    "path-exists": "2.1.x"
   },
   "devDependencies": {
     "husky": "0.10.x",
