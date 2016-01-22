@@ -1,6 +1,6 @@
 {
   "name": "rebem-layers-loader",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "reBEM components layers via webpack loader",
   "keywords": [ "rebem", "webpack", "loader" ],
   "homepage": "https://github.com/rebem/layers-loader",
