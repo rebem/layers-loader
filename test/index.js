@@ -1,7 +1,7 @@
 import test from './helpers/';
 
 describe('transform', function() {
-    describe('simple', function() {
+    describe('simple component', function() {
         it('single layer', function(done) {
             test({
                 path: 'simple/single-layer/',
@@ -161,10 +161,10 @@ describe('transform', function() {
         });
     });
 
-    describe('not found', function() {
-        it('single layer', function(done) {
+    describe('error', function() {
+        it('not found', function(done) {
             test({
-                path: 'not-found/single-layer/',
+                path: 'error/not-found/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -179,7 +179,7 @@ describe('transform', function() {
             })
             .then(done)
             .catch(function(err) {
-                if (err.message === 'Component "#target" not found.') {
+                if (err.message === 'Component "#target" was not found.') {
                     return done();
                 }
 
@@ -187,9 +187,9 @@ describe('transform', function() {
             });
         });
 
-        it('self', function(done) {
+        it('self not found', function(done) {
             test({
-                path: 'not-found/self/',
+                path: 'error/self-not-found/',
                 test: 'layer-0/target/index.js',
                 options: {
                     layers: [
@@ -204,7 +204,7 @@ describe('transform', function() {
             })
             .then(done)
             .catch(function(err) {
-                if (err.message === 'Component "#target" not found.') {
+                if (err.message === 'Component "#target" was not found.') {
                     return done();
                 }
 
@@ -214,7 +214,7 @@ describe('transform', function() {
 
         it('no hash-requires', function(done) {
             test({
-                path: 'not-found/no-hash/',
+                path: 'error/no-hash/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -230,9 +230,35 @@ describe('transform', function() {
             .then(done)
             .catch(done);
         });
+
+        it('only styles', function(done) {
+            test({
+                path: 'error/only-styles/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js',
+                                styles: 'styles.less'
+                            }
+                        }
+                    ]
+                }
+            })
+            .then(done)
+            .catch(function(err) {
+                if (err.message === 'Component "#target" was not found.') {
+                    return done();
+                }
+
+                done(err);
+            });
+        });
     });
 
-    describe('with styles', function() {
+    describe('component with styles', function() {
         it('single layer', function(done) {
             test({
                 path: 'with-styles/single-layer/',
@@ -281,10 +307,30 @@ describe('transform', function() {
         });
     });
 
-    describe('only styles', function() {
-        it('single layer', function(done) {
+    describe('only component styles', function() {
+        it('simple', function(done) {
             test({
-                path: 'only-styles/single-layer/',
+                path: 'only-styles/simple/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js',
+                                styles: 'styles.less'
+                            }
+                        }
+                    ]
+                }
+            })
+            .then(done)
+            .catch(done);
+        });
+
+        it('error', function(done) {
+            test({
+                path: 'only-styles/error/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -300,7 +346,7 @@ describe('transform', function() {
             })
             .then(done)
             .catch(function(err) {
-                if (err.message === 'Component "#target" not found.') {
+                if (err.message === 'Styles for component "#target?styles" were not found.') {
                     return done();
                 }
 
