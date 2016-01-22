@@ -307,7 +307,7 @@ describe('transform', function() {
         });
     });
 
-    describe('only component styles', function() {
+    describe('?styles', function() {
         it('simple', function(done) {
             test({
                 path: 'only-styles/simple/',
@@ -352,6 +352,47 @@ describe('transform', function() {
 
                 done(err);
             });
+        });
+    });
+
+    describe('?class', function() {
+        it('simple', function(done) {
+            test({
+                path: 'class/simple/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ]
+                }
+            })
+            .then(done)
+            .catch(done);
+        });
+
+        it('with styles', function(done) {
+            test({
+                path: 'class/with-styles/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js',
+                                styles: 'styles.less'
+                            }
+                        }
+                    ]
+                }
+            })
+            .then(done)
+            .catch(done);
         });
     });
 });
