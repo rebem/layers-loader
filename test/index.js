@@ -158,6 +158,37 @@ describe('transform', function() {
                 .then(done)
                 .catch(done);
             });
+
+            it('self middle', function(done) {
+                test({
+                    path: 'simple/multiple-layers/self-middle/',
+                    test: 'layer-1/target/index.js',
+                    options: {
+                        layers: [
+                            {
+                                path: 'layer-0/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            },
+                            {
+                                path: 'layer-1/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            },
+                            {
+                                path: 'layer-2/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            }
+                        ]
+                    }
+                })
+                .then(done)
+                .catch(done);
+            });
         });
     });
 
