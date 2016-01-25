@@ -425,5 +425,25 @@ describe('transform', function() {
             .then(done)
             .catch(done);
         });
+
+        it('exportFactory = false', function(done) {
+            test({
+                path: 'class/export-class/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ],
+                    exportFactory: false
+                }
+            })
+            .then(done)
+            .catch(done);
+        });
     });
 });
