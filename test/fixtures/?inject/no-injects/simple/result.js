@@ -1,0 +1,1 @@
+/* #target */ (function() { module.__rebem__ = module.__rebem__ || {}; module.__rebem__['layer-0/target/index.js'] = '#target'; var out = require('react').createFactory(require('layer-0/target/index.js')['default']); return out; })();

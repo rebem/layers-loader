@@ -1,0 +1,1 @@
+require('#target?class&inject');

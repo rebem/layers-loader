@@ -404,4 +404,117 @@ describe('transform', function() {
             });
         });
     });
+
+    describe('?inject', function() {
+        it('simple', function() {
+            return test({
+                path: '?inject/simple/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ],
+                    injectable: true
+                }
+            });
+        });
+
+        it('with styles', function() {
+            return test({
+                path: '?inject/with-styles/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js',
+                                styles: 'styles.less'
+                            }
+                        }
+                    ],
+                    injectable: true
+                }
+            });
+        });
+
+        it('no injects', function() {
+            return test({
+                path: '?inject/no-injects/simple/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ],
+                    injectable: true
+                }
+            });
+        });
+
+        it('no injects + exportFactory: false', function() {
+            return test({
+                path: '?inject/no-injects/export-factory/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ],
+                    exportFactory: false,
+                    injectable: true
+                }
+            });
+        });
+
+        it('?class', function() {
+            return test({
+                path: '?inject/?class/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js'
+                            }
+                        }
+                    ],
+                    injectable: true
+                }
+            });
+        });
+
+        it('?styles', function() {
+            return test({
+                path: '?inject/?styles/',
+                test: 'layer-0/test/index.js',
+                options: {
+                    layers: [
+                        {
+                            path: 'layer-0/',
+                            files: {
+                                main: 'index.js',
+                                styles: 'styles.less'
+                            }
+                        }
+                    ],
+                    injectable: true
+                }
+            });
+        });
+    });
 });
