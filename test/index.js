@@ -310,7 +310,7 @@ describe('transform', function() {
     describe('?styles', function() {
         it('simple', function() {
             return test({
-                path: 'only-styles/simple/',
+                path: '?styles/simple/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -328,7 +328,7 @@ describe('transform', function() {
 
         it('error', function() {
             return test({
-                path: 'only-styles/error/',
+                path: '?styles/error/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -353,7 +353,7 @@ describe('transform', function() {
     describe('?class', function() {
         it('simple', function() {
             return test({
-                path: 'class/simple/',
+                path: '?class/simple/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -370,7 +370,7 @@ describe('transform', function() {
 
         it('with styles', function() {
             return test({
-                path: 'class/with-styles/',
+                path: '?class/with-styles/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -388,7 +388,7 @@ describe('transform', function() {
 
         it('exportFactory = false', function() {
             return test({
-                path: 'class/export-class/',
+                path: '?class/export-factory/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
