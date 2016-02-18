@@ -2,8 +2,8 @@ import test from './helpers/';
 
 describe('transform', function() {
     describe('simple component', function() {
-        it('single layer', function(done) {
-            test({
+        it('single layer', function() {
+            return test({
                 path: 'simple/single-layer/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -16,13 +16,11 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
-        it('cache', function(done) {
-            test({
+        it('cache', function() {
+            return test({
                 path: 'simple/cache/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -35,26 +33,22 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
-        it('exclude', function(done) {
-            test({
+        it('exclude', function() {
+            return test({
                 path: 'simple/exclude/',
                 test: 'test/index.js',
                 options: {
                     layers: []
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
         describe('multiple layers', function() {
-            it('nearest', function(done) {
-                test({
+            it('nearest', function() {
+                return test({
                     path: 'simple/multiple-layers/nearest/',
                     test: 'layer-1/test/index.js',
                     options: {
@@ -73,13 +67,11 @@ describe('transform', function() {
                             }
                         ]
                     }
-                })
-                .then(done)
-                .catch(done);
+                });
             });
 
-            it('through', function(done) {
-                test({
+            it('through', function() {
+                return test({
                     path: 'simple/multiple-layers/through/',
                     test: 'layer-1/test/index.js',
                     options: {
@@ -98,13 +90,11 @@ describe('transform', function() {
                             }
                         ]
                     }
-                })
-                .then(done)
-                .catch(done);
+                });
             });
 
-            it('middle', function(done) {
-                test({
+            it('middle', function() {
+                return test({
                     path: 'simple/multiple-layers/middle/',
                     test: 'layer-1/test/index.js',
                     options: {
@@ -129,13 +119,11 @@ describe('transform', function() {
                             }
                         ]
                     }
-                })
-                .then(done)
-                .catch(done);
+                });
             });
 
-            it('self', function(done) {
-                test({
+            it('self', function() {
+                return test({
                     path: 'simple/multiple-layers/self/',
                     test: 'layer-1/target/index.js',
                     options: {
@@ -154,13 +142,11 @@ describe('transform', function() {
                             }
                         ]
                     }
-                })
-                .then(done)
-                .catch(done);
+                });
             });
 
-            it('self middle', function(done) {
-                test({
+            it('self middle', function() {
+                return test({
                     path: 'simple/multiple-layers/self-middle/',
                     test: 'layer-1/target/index.js',
                     options: {
@@ -185,16 +171,14 @@ describe('transform', function() {
                             }
                         ]
                     }
-                })
-                .then(done)
-                .catch(done);
+                });
             });
         });
     });
 
     describe('error', function() {
-        it('not found', function(done) {
-            test({
+        it('not found', function() {
+            return test({
                 path: 'error/not-found/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -208,18 +192,15 @@ describe('transform', function() {
                     ]
                 }
             })
-            .then(done)
             .catch(function(err) {
-                if (err.message === 'Component "#target" was not found.') {
-                    return done();
+                if (err.message !== 'Component "#target" was not found.') {
+                    throw new Error(err.message);
                 }
-
-                done(err);
             });
         });
 
-        it('self not found', function(done) {
-            test({
+        it('self not found', function() {
+            return test({
                 path: 'error/self-not-found/',
                 test: 'layer-0/target/index.js',
                 options: {
@@ -233,18 +214,15 @@ describe('transform', function() {
                     ]
                 }
             })
-            .then(done)
             .catch(function(err) {
-                if (err.message === 'Component "#target" was not found.') {
-                    return done();
+                if (err.message !== 'Component "#target" was not found.') {
+                    throw new Error(err.message);
                 }
-
-                done(err);
             });
         });
 
-        it('no hash-requires', function(done) {
-            test({
+        it('no hash-requires', function() {
+            return test({
                 path: 'error/no-hash/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -257,13 +235,11 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
-        it('only styles', function(done) {
-            test({
+        it('only styles', function() {
+            return test({
                 path: 'error/only-styles/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -278,20 +254,17 @@ describe('transform', function() {
                     ]
                 }
             })
-            .then(done)
             .catch(function(err) {
-                if (err.message === 'Component "#target" was not found.') {
-                    return done();
+                if (err.message !== 'Component "#target" was not found.') {
+                    throw new Error(err.message);
                 }
-
-                done(err);
             });
         });
     });
 
     describe('component with styles', function() {
-        it('single layer', function(done) {
-            test({
+        it('single layer', function() {
+            return test({
                 path: 'with-styles/single-layer/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -305,13 +278,11 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
-        it('multiple layers', function(done) {
-            test({
+        it('multiple layers', function() {
+            return test({
                 path: 'with-styles/multiple-layers/',
                 test: 'layer-1/test/index.js',
                 options: {
@@ -332,15 +303,13 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
     });
 
     describe('?styles', function() {
-        it('simple', function(done) {
-            test({
+        it('simple', function() {
+            return test({
                 path: 'only-styles/simple/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -354,13 +323,11 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
-        it('error', function(done) {
-            test({
+        it('error', function() {
+            return test({
                 path: 'only-styles/error/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -375,20 +342,17 @@ describe('transform', function() {
                     ]
                 }
             })
-            .then(done)
             .catch(function(err) {
-                if (err.message === 'Styles for component "#target?styles" were not found.') {
-                    return done();
+                if (err.message !== 'Styles for component "#target?styles" were not found.') {
+                    throw new Error(err.message);
                 }
-
-                done(err);
             });
         });
     });
 
     describe('?class', function() {
-        it('simple', function(done) {
-            test({
+        it('simple', function() {
+            return test({
                 path: 'class/simple/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -401,13 +365,11 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
-        it('with styles', function(done) {
-            test({
+        it('with styles', function() {
+            return test({
                 path: 'class/with-styles/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -421,13 +383,11 @@ describe('transform', function() {
                         }
                     ]
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
 
-        it('exportFactory = false', function(done) {
-            test({
+        it('exportFactory = false', function() {
+            return test({
                 path: 'class/export-class/',
                 test: 'layer-0/test/index.js',
                 options: {
@@ -441,9 +401,7 @@ describe('transform', function() {
                     ],
                     exportFactory: false
                 }
-            })
-            .then(done)
-            .catch(done);
+            });
         });
     });
 });
