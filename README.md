@@ -51,7 +51,7 @@ class SomeComponent extends Component {
 
 ### With jsx
 
-Button is exported as is (see `exportFactory` option in webpack config):
+Button is exported as is (see [`exportFactory`](#export-factory) option in webpack config):
 ```js
 import React from 'react';
 import { BEM } from 'rebem';
@@ -70,7 +70,9 @@ class SomeComponent extends React.Component {
 
 ## Example
 
-**`core-components`** — initiate the component
+### `core-components`
+
+Initiate the component
 ```js
 /*
 .
@@ -83,7 +85,10 @@ export default class extends React.Component {
 }
 ```
 
-**`theme-reset`** — reset browser specific styles
+### `theme-reset`
+
+Reset browser specific styles
+
 ```js
 /*
 .
@@ -92,7 +97,10 @@ export default class extends React.Component {
        └── /styles.less
 */
 ```
-**`custom-components`** — at some point we can extend our component in a separate layer. For example, add an icon to a button:
+
+### `custom-components`
+
+At some point we can extend our component in a separate layer. For example, add an icon to a button:
 
 ```js
 /*
@@ -118,7 +126,10 @@ export default class extends React.Component {
 }
 ```
 
-**`product-theme`** — now we may need to apply some theme styles:
+### `product-theme`
+
+Now we may need to apply some theme styles:
+
 ```js
 /*
 .
@@ -159,7 +170,10 @@ export default class extends React.Component {
 }
 ```
 
-**`app`** — and finally we can use this button in our app with the optional local styles
+### `app`
+
+And finally we can use this button in our app with the optional local styles
+
 ```js
 /*
 .
@@ -238,8 +252,8 @@ Path to the components folder (it can be named `components`, `lib`, `src`, `buil
 
 File names to use when importing components from this layer.
 
-* `main`: Component code — it can be optional if you are creating just css-theme.
-* `styles`: Component styles — always optional. You can have entire layer (*theme*) made only with styles. But actually you can extend your components in themes too — for example if you want to add some presentation element in children (like we did in the `Button` example above).
+* `main` — component source: it can be optional if you are creating just css-theme
+* `styles` — component styles: always optional. You can have entire layer (*theme*) made only with styles. But actually you can extend your components in themes too — for example if you want to add some presentation element in children (like we did in the [`Button`](#product-theme) example above)
 
 
 ## Webpack config
@@ -280,17 +294,17 @@ In your app you need to configure how layers should be composed, where you app c
 
 ### `layers`
 
-Array of layer configs. If some layers already have a config, you can just import it.
+Array of layer configs. If some layers already have config, you can just import it.
 
 ### `include`
 
-Array of paths where you want to use components from the layers (with `#`-imports/requires). For example it can be files outside your app component folder or in a unit-tests folder.
+Array of paths where you want to use components from the layers (with `#`-imports). For example, files outside your app component folder or in a unit-tests folder.
 
 ### `exportFactory`
 
 default: `true`
 
-By default when you use `#`-imports, all components are exporting wrapped with React factories (`React.createFactory(...)`), but you can disable it by setting this option `false`.
+By default when you use `#`-imports, all components are exporting wrapped with React factories (`React.createFactory(...)`), but you can disable it by setting this option to `false`.
 
 However if you chose to leave it as `true`, for example if you use reBEM without jsx, you may encounter with a situation when you need class in unit-tests. In this case you can use `?class` option:
 
@@ -322,4 +336,11 @@ const App = AppInjector({
 
 TestUtils.renderIntoDocument(App);
 // ... tests
+```
+
+You can use `inject` along with `?class`-option as well:
+
+```js
+// injectable component imported as React class
+import AppComponentInjector from '#app?class&inject';
 ```
