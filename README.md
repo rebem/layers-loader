@@ -51,7 +51,7 @@ class SomeComponent extends Component {
 
 ### With jsx
 
-Button is exported as is (see [`exportFactory`](#export-factory) option in webpack config):
+Button is exported as is (see [`exportFactory`](#exportfactory) option in webpack config):
 ```js
 import React from 'react';
 import { BEM } from 'rebem';
