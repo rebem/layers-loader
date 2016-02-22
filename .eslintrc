@@ -4,6 +4,7 @@
     "rebem/configs/babel"
   ],
   "rules": {
-    "max-len": 0
+    "max-len": 0,
+    "quotes": 0
   }
 }
