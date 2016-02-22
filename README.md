@@ -15,6 +15,23 @@
 
 ## Usage
 
+### `#`
+
+Components from layers are imported with a special `#`-character along with their styles. So instead of:
+```js
+import Button from '../../some-layer/button/';
+import from '../../some-theme/button/styles.css';
+import from '../../another-theme/button/styles.css';
+```
+
+you just write:
+
+```js
+import Button from '#button';
+```
+
+It imports **component** from the **last layer below** current, and **styles** from **all  layers**.
+
 ### With [reBEM](https://github.com/rebem/rebem)
 
 Button is exported as `React.createFactory(Button)`, so we can use function calls instead of `React.createElement(Button)`:
@@ -85,7 +102,7 @@ export default class extends React.Component {
       └── /index.js
 */
 // import Button from 'core-components/button/index.js';
-// import from 'theme-reset/styles.less';
+// import from 'theme-reset/button/styles.less';
 import Button from '#button';
 
 export default class extends React.Component {
@@ -101,9 +118,7 @@ export default class extends React.Component {
 }
 ```
 
-Notice, that we use special symbol `#` in our import. It allows us to import component instance from the top layer, and styles from all previous layers.
-
-**`product-theme`** — now we may need a theme for a resulting component library:
+**`product-theme`** — now we may need to apply some theme styles:
 ```js
 /*
 .
@@ -112,7 +127,7 @@ Notice, that we use special symbol `#` in our import. It allows us to import com
       └── /index.js
 */
 // import Button from 'custom-components/button/index.js';
-// import from 'theme-reset/styles.less';
+// import from 'theme-reset/button/styles.less';
 // import from './styles.less';
 import Button from '#button';
 
@@ -144,7 +159,7 @@ export default class extends React.Component {
 }
 ```
 
-**`app`** — and finally we can use this button in our app
+**`app`** — and finally we can use this button in our app with the optional local styles
 ```js
 /*
 .
@@ -152,8 +167,9 @@ export default class extends React.Component {
    └── /somewhere.js
 */
 // import Button from 'product-theme/button/index.js';
-// import from 'theme-reset/styles.less';
-// import from 'product-theme/styles.less';
+// import from 'theme-reset/button/styles.less';
+// import from 'product-theme/button/styles.less';
+// import from 'app/components/button/styles.less';
 import Button from '#button';
 
 class SomeAppComponent extends React.Component {
