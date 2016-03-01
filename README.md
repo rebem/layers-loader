@@ -240,7 +240,8 @@ module.exports = {
     files: {
         main: 'index.js',
         styles: 'styles.css'
-    }
+    },
+    exportFactory: true
 };
 ```
 
@@ -254,6 +255,10 @@ File names to use when importing components from this layer.
 
 * `main` — component source: it can be optional if you are creating just css-theme
 * `styles` — component styles: always optional. You can have entire layer (*theme*) made only with styles. But actually you can extend your components in themes too — for example if you want to add some presentation element in children (like we did in the [`Button`](#product-theme) example above)
+
+#### `exportFactory`
+
+If you use `#`-requires inside your layer, it's better to specify if you use factories there or not. For more details please see the `exportFactory` option below.
 
 
 ## Webpack config
