@@ -17,7 +17,8 @@
   "dependencies": {
     "falafel": "1.2.x",
     "loader-utils": "0.2.x",
-    "path-exists": "2.1.x"
+    "path-exists": "2.1.x",
+    "core-js": "2.1.x"
   },
   "devDependencies": {
     "husky": "0.11.x",
