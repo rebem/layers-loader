@@ -73,13 +73,16 @@ class SomeComponent extends React.Component {
 ### `core-components`
 
 Initiate the component
-```js
-/*
+
+```
 .
 └── core-components/
     └── button/
         └── index.js
-*/
+```
+
+
+```js
 export default class extends React.Component {
   render() {//...}
 }
@@ -89,26 +92,25 @@ export default class extends React.Component {
 
 Reset browser specific styles
 
-```js
-/*
+```
 .
 └── theme-reset/
     └── button/
         └── styles.less
-*/
 ```
 
 ### `custom-components`
 
 At some point we can extend our component in a separate layer. For example, add an icon to a button:
 
-```js
-/*
+```
 .
 └── custom-components/
     └── button
         └── index.js
-*/
+```
+
+```js
 // import Button from 'core-components/button/index.js';
 // import from 'theme-reset/button/styles.less';
 import Button from '#button';
@@ -130,13 +132,14 @@ export default class extends React.Component {
 
 Now we may need to apply some theme styles:
 
-```js
-/*
+```
 .
 └── product-theme/
     └── button/
         └── index.js
-*/
+```
+
+```js
 // import Button from 'custom-components/button/index.js';
 // import from 'theme-reset/button/styles.less';
 // import from './styles.less';
@@ -152,13 +155,15 @@ export default class extends React.Component {
 }
 ```
 
-```less
-/*
+```
 .
 └── product-theme/
     └── button/
         └── styles.less
-*/
+```
+
+
+```less
 .button {
   // ...
 
@@ -174,12 +179,14 @@ export default class extends React.Component {
 
 And finally we can use this button in our app with the optional local styles
 
-```js
-/*
+```
 .
 └── app/
     └── somewhere.js
-*/
+```
+
+
+```js
 // import Button from 'product-theme/button/index.js';
 // import from 'theme-reset/button/styles.less';
 // import from 'product-theme/button/styles.less';
@@ -210,11 +217,10 @@ You can use any technologies in your layers (css-preprocessors, babel, etc.). A 
 
 You can use any structure you want, the example below is just a guideline:
 
-```js
-/*
+```
 .
 └── custom-layer/
-    ├── index.js`
+    ├── index.js
     └── components/
         ├── button/
         │   ├── index.js
@@ -225,7 +231,6 @@ You can use any structure you want, the example below is just a guideline:
         │   └── styles.css
         ├── radio/
         └── ...
-*/
 ```
 
 ### layer config
