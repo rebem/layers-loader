@@ -76,9 +76,9 @@ Initiate the component
 ```js
 /*
 .
-└──/core-components
-   └── /button
-       └── /index.js
+└── core-components/
+    └── button/
+        └── index.js
 */
 export default class extends React.Component {
   render() {//...}
@@ -92,9 +92,9 @@ Reset browser specific styles
 ```js
 /*
 .
-└──/theme-reset
-   └── /button
-       └── /styles.less
+└── theme-reset/
+    └── button/
+        └── styles.less
 */
 ```
 
@@ -105,9 +105,9 @@ At some point we can extend our component in a separate layer. For example, add 
 ```js
 /*
 .
-└──/custom-components
-   └── /button
-      └── /index.js
+└── custom-components/
+    └── button
+        └── index.js
 */
 // import Button from 'core-components/button/index.js';
 // import from 'theme-reset/button/styles.less';
@@ -133,9 +133,9 @@ Now we may need to apply some theme styles:
 ```js
 /*
 .
-└──/product-theme
-   └── /button
-      └── /index.js
+└── product-theme/
+    └── button/
+        └── index.js
 */
 // import Button from 'custom-components/button/index.js';
 // import from 'theme-reset/button/styles.less';
@@ -155,9 +155,9 @@ export default class extends React.Component {
 ```less
 /*
 .
-└──/product-theme
-   └── /button
-      └── /styles.less
+└── product-theme/
+    └── button/
+        └── styles.less
 */
 .button {
   // ...
@@ -177,8 +177,8 @@ And finally we can use this button in our app with the optional local styles
 ```js
 /*
 .
-└──/app
-   └── /somewhere.js
+└── app/
+    └── somewhere.js
 */
 // import Button from 'product-theme/button/index.js';
 // import from 'theme-reset/button/styles.less';
@@ -213,18 +213,18 @@ You can use any structure you want, the example below is just a guideline:
 ```js
 /*
 .
-└──/custom-layer
-   ├── /index.js`
-   └── /components
-       ├── /button
-       │   ├── /index.js
-       │   └── /styles.css
-       ├── /checkbox
-       ├── /input
-       │   ├── /index.js
-       │   └── /styles.css
-       ├── /radio
-       └── /...
+└── custom-layer/
+    ├── index.js`
+    └── components/
+        ├── button/
+        │   ├── index.js
+        │   └── styles.css
+        ├── checkbox/
+        ├── input/
+        │   ├── index.js
+        │   └── styles.css
+        ├── radio/
+        └── ...
 */
 ```
 
