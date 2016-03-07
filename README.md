@@ -293,7 +293,7 @@ In your app you need to configure how layers should be composed, where you app c
           }
         ],
         // app source
-        include: [
+        consumers: [
           path.resolve('src/')
         ]
       }
@@ -306,9 +306,9 @@ In your app you need to configure how layers should be composed, where you app c
 
 Array of layer configs. If some layers already have config, you can just import it.
 
-### `include`
+### `consumers`
 
-Array of paths where you want to use components from the layers (with `#`-imports). For example, files outside your app component folder or in a unit-tests folder.
+Array of paths where you want to use (_consume_) components from the layers (with `#`-imports). For example, files outside your app component folder or in a unit-tests folder.
 
 ### `importFactory`
 
