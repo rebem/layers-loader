@@ -386,9 +386,9 @@ describe('transform', function() {
             });
         });
 
-        it('exportFactory = false', function() {
+        it('importFactory = false', function() {
             return test({
-                path: '?class/export-factory/',
+                path: '?class/import-factory/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -399,7 +399,7 @@ describe('transform', function() {
                             }
                         }
                     ],
-                    exportFactory: false
+                    importFactory: false
                 }
             });
         });
@@ -461,9 +461,9 @@ describe('transform', function() {
             });
         });
 
-        it('no injects + exportFactory: false', function() {
+        it('no injects + importFactory: false', function() {
             return test({
-                path: '?inject/no-injects/export-factory/',
+                path: '?inject/no-injects/import-factory/',
                 test: 'layer-0/test/index.js',
                 options: {
                     layers: [
@@ -474,7 +474,7 @@ describe('transform', function() {
                             }
                         }
                     ],
-                    exportFactory: false,
+                    importFactory: false,
                     injectable: true
                 }
             });

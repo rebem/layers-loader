@@ -34,7 +34,7 @@ It imports **component** from the **last layer below** current, and **styles** f
 
 ### With [reBEM](https://github.com/rebem/rebem)
 
-Button is exported as `React.createFactory(Button)`, so we can use function calls instead of `React.createElement(Button)`:
+Button is imported as factory (we just wrap it with `React.createFactory(Button)`), so we can use function calls instead of `React.createElement(Button)`:
 ```js
 import { Component } from 'react';
 import { BEM } from 'rebem';
@@ -51,7 +51,7 @@ class SomeComponent extends Component {
 
 ### With jsx
 
-Button is exported as is (see [`exportFactory`](#exportfactory) option in webpack config):
+Button is imported as is (see [`importFactory`](#importfactory-1) option in webpack config):
 ```js
 import React from 'react';
 import { BEM } from 'rebem';
@@ -246,7 +246,7 @@ module.exports = {
         main: 'index.js',
         styles: 'styles.css'
     },
-    exportFactory: true
+    importFactory: true
 };
 ```
 
@@ -261,9 +261,9 @@ File names to use when importing components from this layer.
 * `main` — component source: it can be optional if you are creating just css-theme
 * `styles` — component styles: always optional. You can have entire layer (*theme*) made only with styles. But actually you can extend your components in themes too — for example if you want to add some presentation element in children (like we did in the [`Button`](#product-theme) example above)
 
-#### `exportFactory`
+#### `importFactory`
 
-If you use `#`-requires inside your layer, it's better to specify if you use factories there or not. For more details please see the `exportFactory` option below.
+If you use `#`-requires inside your layer, it's better to specify if you use factories there or not. For more details please see the [`importFactory`](#importfactory-1) option below.
 
 
 ## Webpack config
@@ -310,11 +310,11 @@ Array of layer configs. If some layers already have config, you can just import 
 
 Array of paths where you want to use components from the layers (with `#`-imports). For example, files outside your app component folder or in a unit-tests folder.
 
-### `exportFactory`
+### `importFactory`
 
 default: `true`
 
-By default when you use `#`-imports, all components are exporting wrapped with React factories (`React.createFactory(...)`), but you can disable it by setting this option to `false`.
+By default when you use `#`-imports, all components are importing wrapped with React factories (`React.createFactory(...)`), but you can disable it by setting this option to `false`.
 
 However if you chose to leave it as `true`, for example if you use reBEM without jsx, you may encounter with a situation when you need class in unit-tests. In this case you can use `?class` option:
 
