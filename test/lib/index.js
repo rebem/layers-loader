@@ -1,4 +1,4 @@
-import test from './helpers/';
+import test from '../helpers/';
 
 describe('transform', function() {
     describe('simple component', function() {
