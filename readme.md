@@ -2,6 +2,7 @@
 [![travis](http://img.shields.io/travis/rebem/layers-loader.svg?style=flat-square)](https://travis-ci.org/rebem/layers-loader)
 [![coverage](https://img.shields.io/codecov/c/github/rebem/layers-loader.svg?style=flat-square)](https://codecov.io/github/rebem/layers-loader)
 [![deps](https://img.shields.io/gemnasium/rebem/layers-loader.svg?style=flat-square)](https://gemnasium.com/rebem/layers-loader)
+[![gitter](https://img.shields.io/badge/gitter-join_chat_%E2%86%92-46bc99.svg?style=flat-square)](https://gitter.im/rebem/rebem)
 
 [Webpack](https://webpack.github.io/) loader for composing sets (layers) of React components. It allows you to easily create themes and share entire component libraries. A couple of use-cases:
 
