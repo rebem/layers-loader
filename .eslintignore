@@ -1,4 +1,0 @@
-build/
-coverage/
-tmp/
-test/fixtures/**/result.js
