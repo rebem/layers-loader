@@ -31,7 +31,7 @@ you just write:
 import Button from '#button';
 ```
 
-It imports **component** from the **last layer below** current, and **styles** from **all  layers**.
+It imports **component** from the **nearest layer** and **styles** from **all layers**.
 
 ### With [reBEM](https://github.com/rebem/rebem)
 
@@ -50,20 +50,19 @@ class SomeComponent extends Component {
 }
 ```
 
-### With jsx
+### With JSX
 
 Button is imported as is (see [`importFactory`](#importfactory-1) option in webpack config):
 ```js
 import React from 'react';
-import { BEM } from 'rebem';
 import Button from '#button';
 
 class SomeComponent extends React.Component {
   render() {
     return (
-      <BEM block="some-block">
+      <div block="some-block">
         <Button block="some-block" elem="button">{'Click me'}</Button>;
-      </BEM>
+      </div>
     );
   }
 }
@@ -317,7 +316,7 @@ default: `true`
 
 By default when you use `#`-imports, all components are importing wrapped with React factories (`React.createFactory(...)`), but you can disable it by setting this option to `false`.
 
-However if you chose to leave it as `true`, for example if you use reBEM without jsx, you may encounter with a situation when you need class in unit-tests. In this case you can use `?class` option:
+However if you chose to leave it as `true`, for example if you use reBEM without JSX, you may encounter with a situation when you need class in unit-tests. In this case you can use `?class` option:
 
 ```js
 import Button from '#button?class';
