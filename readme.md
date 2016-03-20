@@ -8,11 +8,11 @@
 
 ### products
 
-![](https://dl.dropboxusercontent.com/s/xffgzqv4rvngbbz/products.png)
+![](docs/products.png)
 
 ### platforms
 
-![](https://dl.dropboxusercontent.com/s/lvnj9wtpool6mw1/platforms.png)
+![](docs/platforms.png)
 
 ## Usage
 
