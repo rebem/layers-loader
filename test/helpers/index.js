@@ -10,6 +10,9 @@ export default function(params) {
 
     const transform = require('../../lib/transform');
     const testPath = path.resolve('./test/fixtures/', params.path);
+    const loaderContext = {
+        context: testPath
+    };
     const componentPath = path.resolve(testPath, params.test);
     const resultPath = path.resolve(testPath, 'result.js');
     const options = {
@@ -24,9 +27,7 @@ export default function(params) {
 
     return readFile(componentPath, 'utf-8').then(sourceData => {
         return readFile(resultPath, 'utf-8').then(resultData => {
-            return transform(sourceData, componentPath, options).then(result => {
-                result = result.split(testPath + '/').join('');
-
+            return transform.call(loaderContext, sourceData, componentPath, options).then(result => {
                 if (result !== resultData) {
                     console.log('actual:', result);
                     console.log('expected:', resultData);
