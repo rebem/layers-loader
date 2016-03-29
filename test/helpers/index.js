@@ -28,8 +28,6 @@ export default function(params) {
     return readFile(componentPath, 'utf-8').then(sourceData => {
         return readFile(resultPath, 'utf-8').then(resultData => {
             return transform.call(loaderContext, sourceData, componentPath, options).then(result => {
-                result = result.split(testPath + '/').join('');
-
                 if (result !== resultData) {
                     console.log('actual:', result);
                     console.log('expected:', resultData);

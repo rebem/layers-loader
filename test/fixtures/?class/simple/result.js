@@ -1,1 +1,1 @@
-/* #target?class */ require('layer-0/target/index.js')['default'];
+/* #target?class */ require('./layer-0/target/index.js')['default'];
