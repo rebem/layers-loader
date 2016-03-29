@@ -18,7 +18,7 @@
     "falafel": "1.2.x",
     "loader-utils": "0.2.x",
     "path-exists": "2.1.x",
-    "core-js": "2.1.x"
+    "core-js": "2.2.x"
   },
   "devDependencies": {
     "start-babel-cli": "1.x.x",
@@ -35,7 +35,7 @@
     "react-dom": "0.14.x",
     "react-addons-test-utils": "0.14.x",
 
-    "babel-istanbul": "0.6.x",
+    "babel-istanbul": "0.7.x",
     "husky": "0.11.x"
   },
   "scripts": {
