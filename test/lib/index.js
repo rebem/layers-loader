@@ -173,6 +173,35 @@ describe('transform', function() {
                     }
                 });
             });
+
+            it('same folder name', function() {
+                return test({
+                    path: 'simple/multiple-layers/same-folder-name/',
+                    test: 'layer-1/subfolder/target/index.js',
+                    options: {
+                        layers: [
+                            {
+                                path: 'layer-0/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            },
+                            {
+                                path: 'layer-1/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            },
+                            {
+                                path: 'layer-2/',
+                                files: {
+                                    main: 'index.js'
+                                }
+                            }
+                        ]
+                    }
+                });
+            });
         });
     });
 
