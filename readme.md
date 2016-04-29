@@ -314,7 +314,46 @@ Array of paths where you want to use (_consume_) components from the layers (wit
 
 default: `true`
 
-By default when you use `#`-imports, all components are importing wrapped with React factories (`React.createFactory(...)`), but you can disable it by setting this option to `false`.
+By default when you use `#`-imports, all components are importing wrapped with React factories (`React.createFactory(...)`), but you can disable it by setting this option to `false` in root config or in specific layer config.
+
+When you set `importFactory` option in root config it will be applied to consumers and all layers where `importFactory` option is not specified.
+
+In the example below consumers and `src/components` layer will have `importFactory: true`, but `src/containers` will have `importFactory: false`, because it is specified there explicetely:
+
+```js
+  // ...
+  preLoaders: [
+    {
+      test: /\.js$/,
+      loader: 'rebem-layers',
+      query: {
+        layers: [
+          {
+            path: path.resolve('src/components/'),
+            files: {
+              main: 'index.js',
+              styles: 'styles.less'
+            }
+          },
+          {
+            path: path.resolve('src/containers/'),
+            files: {
+              main: 'index.js',
+              styles: 'styles.less'
+            },
+            importFactory: false
+          }
+        ],
+        importFactory: false,
+        // app source
+        consumers: [
+          path.resolve('src/')
+        ]
+      }
+    }
+  ],
+  // ...
+```
 
 However if you chose to leave it as `true`, for example if you use reBEM without JSX, you may encounter with a situation when you need class in unit-tests. In this case you can use `?class` option:
 
