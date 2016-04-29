@@ -321,7 +321,6 @@ When you set `importFactory` option in root config it will be applied to consume
 In the example below consumers and `src/components` layer will have `importFactory: true`, but `src/containers` will have `importFactory: false`, because it is specified there explicetely:
 
 ```js
-  // ...
   preLoaders: [
     {
       test: /\.js$/,
@@ -344,15 +343,13 @@ In the example below consumers and `src/components` layer will have `importFacto
             importFactory: false
           }
         ],
-        importFactory: false,
-        // app source
+        importFactory: true,
         consumers: [
           path.resolve('src/')
         ]
       }
     }
   ],
-  // ...
 ```
 
 However if you chose to leave it as `true`, for example if you use reBEM without JSX, you may encounter with a situation when you need class in unit-tests. In this case you can use `?class` option:
